@@ -37,7 +37,7 @@ export default function DevToolsToast() {
 						</div>
 						<div>
 							<p>Time to be removed at</p>
-							<p>{toast.lifespan}</p>
+							<p>{toast.destroyAt}</p>
 						</div>
 						{input.removeable && (
 							<button onClick={toast.destroy}>

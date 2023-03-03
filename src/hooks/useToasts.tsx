@@ -8,8 +8,8 @@ export type Type = "info" | "success" | "warning" | "error" | "default";
 export interface Toast {
 	id: string;
 	type: Type;
-	lifespan: number | null;
 	children: Childern;
+	destroyAt: number | null;
 	destroy: () => void;
 }
 
@@ -42,13 +42,28 @@ export function useToast() {
 export function ToastProvider({ children }: ToastProviderProps) {
 	const [toasts, setToasts] = useState<Toast[]>([]);
 
+	function destroyExpiredToast(toast: Toast, time: number) {
+		if (toast.destroyAt && toast.destroyAt < time) {
+			toast.destroy();
+		}
+	}
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			const time = Date.now();
+			toasts.forEach(toast => destroyExpiredToast(toast, time));
+		}, 500);
+
+		return () => clearInterval(interval);
+	}, [toasts]);
+
 	function addToast(toast: AddToast, id = Math.random().toString(36)) {
 		setToasts(toasts => [
 			...toasts,
 			{
 				id: id,
 				type: toast.type,
-				lifespan: toast.lifespan == 0 ? null : toast.lifespan * 1000,
+				destroyAt: toast.lifespan == 0 ? null : toast.lifespan + Date.now(),
 				children: toast.children,
 				destroy: () => removeToast(id),
 			},

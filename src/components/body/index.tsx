@@ -9,7 +9,7 @@ interface BodyProps {
 }
 
 export default function Body({ children }: BodyProps) {
-	const { height, width } = useViewport();
+	const { height } = useViewport();
 
 	const heightStyles = useMemo(() => {
 		return {
@@ -25,7 +25,6 @@ export default function Body({ children }: BodyProps) {
 			"navbar"
 			"main"
 		`,
-		overflow: "hidden",
 	};
 
 	return (
@@ -34,6 +33,7 @@ export default function Body({ children }: BodyProps) {
 				...defaultStyles,
 				...heightStyles,
 			}}
+			className="overflow-hidden"
 		>
 			{children}
 			<ToastContainer />

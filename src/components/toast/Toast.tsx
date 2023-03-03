@@ -1,21 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
-
 import type { Toast } from "@src/hooks/useToasts";
 
 import Icon from "./Icon";
 
 export default function Toast(toast: Toast) {
-	useEffect(() => {
-		if (toast.lifespan == null) return;
-		const timeout = setTimeout(() => {
-			toast.destroy();
-		}, toast.lifespan);
-
-		return () => clearTimeout(timeout);
-	}, [toast]);
-
 	return (
 		<div
 			className={
@@ -31,7 +20,7 @@ export default function Toast(toast: Toast) {
 					: "")
 			}
 		>
-			<div className="flex gap-3 max-w-sm w-full">
+			<div className="flex justify-between gap-3">
 				<Icon type={toast.type} />
 				{toast.children(toast)}
 			</div>

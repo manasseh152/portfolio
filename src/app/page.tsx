@@ -1,9 +1,10 @@
 import Dev from "@src/components/toast/Dev";
+import Main from "@src/components/main";
 
 export default function Home() {
 	return (
-		<main>
+		<Main>
 			<Dev />
-		</main>
+		</Main>
 	);
 }
