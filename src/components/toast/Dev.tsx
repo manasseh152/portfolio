@@ -73,14 +73,21 @@ export default function DevToolsToast() {
 	return (
 		<section className="flex flex-col gap-2 w-full max-w-md p-2">
 			<h3 className="text-2xl">Toast devtools</h3>
-			<form onSubmit={handleSubmit} className="flex flex-col gap-1">
-				<label className="flex flex-col gap-1">
-					Message
-					<input type="text" ref={messageRef} />
+			<form
+				onSubmit={handleSubmit}
+				className="flex flex-col gap-1 form-control"
+			>
+				<label className="label items-start flex-col">
+					<span className="label-text">Message</span>
+					<input
+						className="input input-bordered w-full"
+						type="text"
+						ref={messageRef}
+					/>
 				</label>
-				<label className="flex flex-col gap-1">
-					Type
-					<select ref={typeRef}>
+				<label className="label items-start flex-col">
+					<span className="label-text">Type</span>
+					<select className="select select-bordered w-full" ref={typeRef}>
 						<option value="default">Default</option>
 						<option value="info">Info</option>
 						<option value="success">Success</option>
@@ -88,13 +95,27 @@ export default function DevToolsToast() {
 						<option value="error">Error</option>
 					</select>
 				</label>
-				<label className="flex flex-col gap-1">
-					Lifespan
-					<input type="number" ref={lifespanRef} />
+
+				<label className="label items-start flex-col">
+					<span className="label-text">Enter lifespan</span>
+					<div className="input-group">
+						<input
+							className="input input-bordered w-full"
+							type="number"
+							ref={lifespanRef}
+							placeholder="1000"
+							min="0"
+						/>
+						<span>MS</span>
+					</div>
 				</label>
-				<label className="flex flex-col gap-1">
-					Removeable
-					<input type="checkbox" ref={removeableRef} />
+				<label className="label cursor-pointer">
+					<span className="label-text">Removeable</span>
+					<input
+						type="checkbox"
+						className="toggle toggle-primary"
+						ref={removeableRef}
+					/>
 				</label>
 				<button className="btn btn-primary" type="submit">
 					Add Toast

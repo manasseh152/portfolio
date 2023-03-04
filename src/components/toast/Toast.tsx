@@ -8,7 +8,7 @@ export default function Toast(toast: Toast) {
 	return (
 		<div
 			className={
-				"flex alert h-min " +
+				"flex alert h-min sm:w-max " +
 				(toast.type === "info"
 					? "alert-info"
 					: toast.type === "success"

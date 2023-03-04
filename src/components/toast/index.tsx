@@ -7,7 +7,7 @@ export default function ToastContainer() {
 	const { toasts } = useToast();
 
 	return (
-		<div className="toast toast-center w-full sm:max-w-sm sm:toast-end">
+		<div className="toast toast-center w-full sm:max-w-sm sm:toast-end sm:items-end">
 			{toasts.map(toast => (
 				<Toast key={toast.id} {...toast} />
 			))}
