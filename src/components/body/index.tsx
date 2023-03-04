@@ -33,7 +33,7 @@ export default function Body({ children }: BodyProps) {
 				...defaultStyles,
 				...heightStyles,
 			}}
-			className="overflow-hidden"
+			className=""
 		>
 			{children}
 			<ToastContainer />

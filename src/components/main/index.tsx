@@ -8,7 +8,7 @@ export default function Main({ children }: MainProps) {
 			style={{
 				gridArea: "main",
 			}}
-			className="overflow-auto h-full"
+			className="overflow-y-auto"
 		>
 			{children}
 		</main>
