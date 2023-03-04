@@ -2,6 +2,7 @@
 
 import { ViewportProvider } from "@src/hooks/useViewport";
 import { ToastProvider } from "@src/hooks/useToasts";
+import { ServiceWorkerProvider } from "@src/hooks/useServiceWorker";
 
 interface WrapperProps {
 	children: React.ReactNode;
@@ -9,8 +10,10 @@ interface WrapperProps {
 
 export default function Wrapper({ children }: WrapperProps) {
 	return (
-		<ViewportProvider>
-			<ToastProvider>{children}</ToastProvider>
-		</ViewportProvider>
+		<ServiceWorkerProvider>
+			<ViewportProvider>
+				<ToastProvider>{children}</ToastProvider>
+			</ViewportProvider>
+		</ServiceWorkerProvider>
 	);
 }
