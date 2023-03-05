@@ -15,3 +15,21 @@ self.addEventListener("fetch", async event => {
 		event.respondWith(networkFirst(request));
 	}
 });
+
+async function cacheFirst(request) {
+	const cachedResponse = await caches.match(request);
+	return cachedResponse || fetch(request);
+}
+
+async function networkFirst(request) {
+	const cache = await caches.open("dynamic-cache");
+	try {
+		const response = await fetch(request);
+		cache.put(request, response.clone());
+		return response;
+	} catch (error) {
+		return await cache.match(request);
+	}
+}
+
+// Path: public/manifest.json
