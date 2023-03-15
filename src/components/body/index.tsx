@@ -20,10 +20,10 @@ export default function Body({ children }: BodyProps) {
 	const defaultStyles = {
 		display: "grid",
 		gridTemplateColumns: "1fr",
-		gridTemplateRows: "min-content 1fr",
+		gridTemplateRows: "1fr min-content",
 		gridTemplateAreas: `
-			"navbar"
 			"main"
+			"navbar"
 		`,
 	};
 
@@ -33,7 +33,7 @@ export default function Body({ children }: BodyProps) {
 				...defaultStyles,
 				...heightStyles,
 			}}
-			className=""
+			className="relative"
 		>
 			{children}
 			<ToastContainer />

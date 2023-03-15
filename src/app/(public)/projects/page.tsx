@@ -17,7 +17,7 @@ export default function ProjectsPage() {
 				>
 					<figure>
 						<Image
-							src="/images/Toast_Devtools.png"
+							src="/images/projects/toastui.png"
 							alt="Next.js"
 							width={400}
 							height={400}
