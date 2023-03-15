@@ -64,12 +64,12 @@ export default function Navbar() {
 				</NavLink>
 				<Burger>
 					<ul className="flex flex-col">
-						<li>
+						<li className="p-1">
 							<Link href={"/about"} className="flex items-center p-4">
 								About
 							</Link>
 						</li>
-						<li>
+						<li className="p-1">
 							<Link href={"/projects"} className="flex items-center p-4">
 								Projects
 							</Link>

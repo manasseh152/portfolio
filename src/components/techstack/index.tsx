@@ -2,7 +2,7 @@ import Icon from "./Icon";
 
 export default function TechStack() {
 	return (
-		<section className="p-2">
+		<section className="p-2 max-w-xl w-full">
 			<h3 className="text-2xl font-bold">Tech Stack</h3>
 			<ol className="flex flex-wrap justify-center gap-4">
 				<Icon name="css3" src="/images/dev-icons/css3/css3-original.svg" />
